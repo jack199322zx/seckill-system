@@ -1,11 +1,12 @@
 package com.seckill.demo.controller;
 
+import com.seckill.demo.domain.Result;
+import com.seckill.demo.service.SeckillService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Author ss
@@ -17,10 +18,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("seckill")
 public class SeckillController {
 
+    @Autowired
+    private SeckillService seckillService;
+
     @ApiOperation(value = "test测试", notes = "接口发布说明")
-    @PostMapping("/start")
+    @GetMapping("/start")
     public String test() {
         log.info("test============");
         return "test";
+    }
+
+    @ApiOperation(value = "mysql行锁", notes = "行锁实现秒杀")
+    @PostMapping("/mock-mysql")
+    public Result seckillByMysql(@RequestParam String seckillId) {
+        return seckillService.mysqlAchievement(seckillId);
     }
 }
