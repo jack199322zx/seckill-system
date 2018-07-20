@@ -6,4 +6,19 @@
           FROM seckill
           WHERE seckill_id = #{id}
     </select>
+
+    <update id="releaseStock">
+        UPDATE seckill
+          SET number = number - 1
+          WHERE seckill_id = #{id}
+    </update>
+
+    <insert id="saveSeckillSuccess" parameterType="java.util.List">
+        INSERT INTO success_killed(seckill_id, user_id, state)
+          VALUES
+        <foreach collection="list" item="item" separator=",">
+          (#{item.seckill_id}, #{item.user_id}, #{item.state})
+        </foreach>
+
+    </insert>
 </mapper>

@@ -1,6 +1,10 @@
 package com.seckill.demo.mapper;
 
 import com.seckill.demo.domain.Seckill;
+import com.seckill.demo.domain.SeckillSuccess;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * @Author ss
@@ -8,4 +12,6 @@ import com.seckill.demo.domain.Seckill;
  */
 public interface SeckillMapper {
     Seckill findSeckillById(String seckillId);
+    int releaseStock(String seckillId);
+    int saveSeckillSuccess(List<SeckillSuccess> seckillSuccesses);
 }
