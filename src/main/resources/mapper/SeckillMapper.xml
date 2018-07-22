@@ -5,6 +5,7 @@
         SELECT seckill_id, name, number, start_time, end_time, create_time, version
           FROM seckill
           WHERE seckill_id = #{id}
+          FOR UPDATE
     </select>
 
     <update id="releaseStock">
@@ -20,5 +21,10 @@
           (#{item.seckill_id}, #{item.user_id}, #{item.state})
         </foreach>
 
+    </insert>
+
+    <insert id="saveSeckillSuccessBySingle" parameterType="com.seckill.demo.domain.Seckill">
+        INSERT INTO success_killed(seckill_id, user_id, state)
+        VALUES(#{seckill_id}, #{user_id}, #{state})
     </insert>
 </mapper>

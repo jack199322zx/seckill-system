@@ -4,12 +4,11 @@ spring:
         url: jdbc:mysql://127.0.0.1:3306/seckill
         username: root
         password: 1234
-        # 使用druid数据源
+        # 使锟斤拷druid锟斤拷锟斤拷源
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.jdbc.Driver
 mybatis:
   mapperLocations: classpath:mapper/*.xml
-  typeAliasesPackage: com.seckill.demo
 server:
   address: 127.0.0.1
   port: 8998

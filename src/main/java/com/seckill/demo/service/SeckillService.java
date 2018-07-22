@@ -10,6 +10,7 @@ import com.seckill.demo.domain.Result;
 
 public interface SeckillService {
     Result mysqlAchievement(String seckillId);
-    Result redisAchievement(String seckillId);
+    Result redisAchievement(String seckillId, int type);
     Result queueAchievement(String seckillId);
+    Result seckillBySingleThread(String seckillId);
 }

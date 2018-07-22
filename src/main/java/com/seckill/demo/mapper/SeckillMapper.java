@@ -14,4 +14,5 @@ public interface SeckillMapper {
     Seckill findSeckillById(String seckillId);
     int releaseStock(String seckillId);
     int saveSeckillSuccess(List<SeckillSuccess> seckillSuccesses);
+    int saveSeckillSuccessBySingle(SeckillSuccess seckillSuccess);
 }

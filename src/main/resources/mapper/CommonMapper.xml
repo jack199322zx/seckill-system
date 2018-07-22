@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.seckill.demo.mapper.CommonMapper">
+    <delete id="clearSeckillSuccessById" parameterType="string">
+        DELETE FROM success_killed WHERE seckill_id = #{id}
+    </delete>
+
+    <update id="updateSeckillById" parameterType="string">
+        UPDATE seckill
+          SET number = 100
+          WHERE seckill_id = #{id}
+    </update>
+
+    <select id="findSeckillStockNum" parameterType="string" resultType="int">
+        SELECT number FROM seckill
+          WHERE seckill_id = #{id}
+    </select>
+</mapper>

@@ -15,8 +15,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class SeckillSuccess {
 
-    private int seckill_id;
-    private int user_id;
+    private String seckill_id;
+    private String user_id;
     private int state;
 
 }

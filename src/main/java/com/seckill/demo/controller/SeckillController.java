@@ -8,6 +8,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.ThreadPoolExecutor;
+
 /**
  * @Author ss
  * @Date 2018/7/6 16:45
@@ -32,5 +35,11 @@ public class SeckillController {
     @PostMapping("/mock-mysql")
     public Result seckillByMysql(@RequestParam String seckillId) {
         return seckillService.mysqlAchievement(seckillId);
+    }
+
+    @ApiOperation(value = "blockqueue阻塞队列", notes = "阻塞队列实现秒杀")
+    @PostMapping("/mock-blockqueue")
+    public Result seckillByQueue(@RequestParam String seckillId) {
+        return seckillService.queueAchievement(seckillId);
     }
 }
