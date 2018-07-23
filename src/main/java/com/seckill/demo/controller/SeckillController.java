@@ -42,4 +42,10 @@ public class SeckillController {
     public Result seckillByQueue(@RequestParam String seckillId) {
         return seckillService.queueAchievement(seckillId);
     }
+
+    @ApiOperation(value = "redis分布式锁", notes = "redis分布式锁实现秒杀")
+    @PostMapping("/mock-redis")
+    public Result seckillByRedis(@RequestParam String seckillId, @RequestParam int type) {
+        return seckillService.redisAchievement(seckillId, type);
+    }
 }
